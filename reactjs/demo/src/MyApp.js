@@ -1,5 +1,11 @@
 import React from 'react';
 
+function Test() {
+    return (
+        <div>Test</div>
+    )
+}
+
 function MyApp() {
     const title = "Simple titre";
 
@@ -14,6 +20,7 @@ function MyApp() {
             <button onClick={()=>console.log('ok')}>Click</button>
             <div>{title}</div>
             {list}
+            <Test />
         </div>
     );
 }
