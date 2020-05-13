@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function Player(props) {
+    const [teamVisible, showTeamVisible] = useState(false);
+    let team = <></>
+    if(teamVisible) {
+        team = <li>Equipe: {props.team}</li>
+    }
     return (
-        <li> 
-            <span>Player: {props.name}</span>
-            <span>Equipe: {props.team}</span>
-        </li>
+        <>
+            <li onClick={() => showTeamVisible(!teamVisible)}>Player: {props.name}</li>
+            {team}
+        </>
     )
 }
 
