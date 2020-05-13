@@ -10,10 +10,16 @@ function Test(props) {
 }
 
 class Player extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = { team: "Juventus" }
+    }
     render() {
         return (
-            <p>Player: {this.props.name}</p>
+            <>
+                <p>Player: {this.props.name}</p>
+                <p>Equipe: {this.state.team}</p>
+            </>
         )
     }
 }
