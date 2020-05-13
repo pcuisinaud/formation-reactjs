@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 function Player(props) {
     const [teamVisible, setTeamVisible] = useState(false);
     let team = <></>
-    if(teamVisible) {
-        team = <li>Equipe: {props.team}</li>
+    if (teamVisible) {
+        team = <span> (Equipe: {props.team})</span>
     }
     return (
         <>
-            <li onClick={() => setTeamVisible(!teamVisible)}>Player: {props.name}</li>
-            {team}
+            <li onDoubleClick={() => setTeamVisible(!teamVisible)}>
+                <span>Player: {props.name}</span>
+                {team}
+            </li>
         </>
     )
 }
@@ -25,7 +27,7 @@ class Players extends React.Component {
         ]
     }
     render() {
-        const players = this.players.map(p => <Player key={p.name} name={p.name} team={p.team}/>);
+        const players = this.players.map(p => <Player key={p.name} name={p.name} team={p.team} />);
         return (
             <>
                 <h1>Liste des joueurs</h1>
