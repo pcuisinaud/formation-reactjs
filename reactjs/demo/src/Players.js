@@ -6,10 +6,11 @@ function Player(props) {
     if (teamVisible) {
         team = <span> (Equipe: {props.team})</span>
     }
+    let playerStyle = props.team.length < 5 ? {color: 'red'} : {}
     return (
         <>
             <li onDoubleClick={() => setTeamVisible(!teamVisible)}>
-                <span>Player: {props.name}</span>
+                <span style={playerStyle}>Player: {props.name}</span>
                 {team}
             </li>
         </>
