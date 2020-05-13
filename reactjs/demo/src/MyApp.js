@@ -9,6 +9,15 @@ function Test(props) {
     )
 }
 
+class Player extends React.Component {
+
+    render() {
+        return (
+            <p>Player: {this.props.name}</p>
+        )
+    }
+}
+
 function MyApp() {
     //const title = "Simple titre";
     const [title, setTitle] = useState("Test");
@@ -24,9 +33,8 @@ function MyApp() {
             <button onClick={() => setTitle("Coucou")}>Click</button>
             <div>{title}</div>
             {list}
-            <Test
-                title="Titre principal"
-                content="Contenu de mon composant" />
+            <Test content="Contenu de mon composant" />
+            <Player name="Philippe" />
         </div>
     );
 }
