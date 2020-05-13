@@ -11,7 +11,7 @@
 
     </div>
     <div id="example">
-        <span>Simple span</span>
+        <span id="sample">Simple span</span>
     </div>
 
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
@@ -19,7 +19,7 @@
     <script>
         var ce = React.createElement;
         ReactDOM.render(
-            ce("h2", null, "Fonction ReactJS"),
+            ce("h2", null, ce("strong", null, "Fonction ReactJS")),
             document.getElementById('app')
         );
     </script>
