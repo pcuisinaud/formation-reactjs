@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Players from './Players';
 
 function Test(props) {
     return (
@@ -7,21 +8,6 @@ function Test(props) {
             <p>{props.content}</p>
         </div>
     )
-}
-
-class Player extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { team: "Juventus" }
-    }
-    render() {
-        return (
-            <>
-                <p>Player: {this.props.name}</p>
-                <p>Equipe: {this.state.team}</p>
-            </>
-        )
-    }
 }
 
 function MyApp() {
@@ -36,11 +22,7 @@ function MyApp() {
 
     return (
         <div>
-            <button onClick={() => setTitle("Coucou")}>Click</button>
-            <div>{title}</div>
-            {list}
-            <Test content="Contenu de mon composant" />
-            <Player name="Philippe" />
+            <Players />
         </div>
     );
 }
