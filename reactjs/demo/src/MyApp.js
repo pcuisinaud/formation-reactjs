@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Test(props) {
     return (
@@ -10,7 +10,8 @@ function Test(props) {
 }
 
 function MyApp() {
-    const title = "Simple titre";
+    //const title = "Simple titre";
+    const [title, setTitle] = useState("Test");
 
     let list = <ul>
         <li>Element 1</li>
@@ -20,10 +21,12 @@ function MyApp() {
 
     return (
         <div>
-            <button onClick={() => console.log('ok')}>Click</button>
+            <button onClick={() => setTitle("Coucou")}>Click</button>
             <div>{title}</div>
             {list}
-            <Test content="Contenu de mon composant" />
+            <Test
+                title="Titre principal"
+                content="Contenu de mon composant" />
         </div>
     );
 }
