@@ -8,8 +8,10 @@ class CounterComponent extends React.Component
     }
 
     onClick() {
+        let newCount = (this.state.counter + 1) % 10;
+        
         this.setState({
-            counter: (this.state.counter + 1) % 10
+            counter: newCount
         });
     }
 
