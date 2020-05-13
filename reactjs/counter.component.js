@@ -9,7 +9,7 @@ class CounterComponent extends React.Component
 
     onClick() {
         this.setState({
-            counter: (this.state.counter + 1) % 10 + 1
+            counter: (this.state.counter % 10) + 1
         });
     }
 
