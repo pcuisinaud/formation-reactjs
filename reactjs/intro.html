@@ -16,11 +16,18 @@
 
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="switch.component.js"></script>
     <script>
+        /*
         var ce = React.createElement;
         ReactDOM.render(
             ce("h2", null, ce("strong", null, "Fonction ReactJS")),
             document.getElementById('app')
+        );
+        */
+        ReactDOM.render(
+            e(SwitchComponent),
+            document.getElementById("app")
         );
     </script>
 </body>
