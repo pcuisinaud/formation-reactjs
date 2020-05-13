@@ -10,12 +10,16 @@
     <div id="app">
 
     </div>
+    <div id="example">
+        <span>Simple span</span>
+    </div>
 
     <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
     <script>
-         ReactDOM.render(
-            React.createElement("h2", null, "Fonction ReactJS"),
+        var ce = React.createElement;
+        ReactDOM.render(
+            ce("h2", null, "Fonction ReactJS"),
             document.getElementById('app')
         );
     </script>
