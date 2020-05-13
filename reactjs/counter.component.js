@@ -3,14 +3,13 @@ class CounterComponent extends React.Component
     constructor(props) {
         super(props);
         this.state = {
-            counter: 0
+            counter: 1
         };
     }
 
     onClick() {
-
         this.setState({
-            counter: (this.state.counter + 1) %10
+            counter: (this.state.counter + 1) % 10 + 1
         });
     }
 
