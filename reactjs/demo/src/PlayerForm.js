@@ -4,7 +4,19 @@ class PlayerForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: '', team: '' }
+        this.state = { name: '', team: '', teams: null }
+    }
+
+    // postconstruct
+    componentDidMount() {
+        console.log("Did mount")
+        fetch('http://localhost:8080')
+            .then(res => res.json())
+            .then(teams => this.setState({teams}));
+    }
+  
+    // predestroy
+    componentWillUnmount() {
     }
 
     onSave() {
@@ -19,15 +31,15 @@ class PlayerForm extends React.Component {
     }
 
     render() {
+        if (!this.state.teams) return (<div>Loading...</div>)
+
         this.onHandleChange = this.onHandleChange.bind(this);
         return (
             <div>
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
                 <select name="team" value={this.state.team} onChange={this.onHandleChange}>
                     <option value="">- Choisir une équipe -</option>
-                    <option>Juve</option>
-                    <option>Madrid</option>
-                    <option>Strasbourg</option>
+                    {this.state.teams.map((team) => (<option>{team}</option>))}
                 </select>
                 <button onClick={() => this.onSave()}>Enregistrer</button>
             </div>
