@@ -1,4 +1,5 @@
 import React from 'react';
+import PlayerService from './services/Player.service';
 
 class PlayerForm extends React.Component {
 
@@ -10,9 +11,7 @@ class PlayerForm extends React.Component {
     // postconstruct
     componentDidMount() {
         console.log("Did mount")
-        fetch('http://localhost:8080')
-            .then(res => res.json())
-            .then(teams => this.setState({teams}));
+        PlayerService.getTeams().then(teams => this.setState({teams}));
     }
   
     // predestroy
