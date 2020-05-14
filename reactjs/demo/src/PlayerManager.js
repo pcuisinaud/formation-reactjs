@@ -1,5 +1,6 @@
 import React from 'react';
 import PlayerForm from './PlayerForm';
+import FilterPlayer from './FilterPlayer';
 import PlayerList from './PlayerList';
 
 class PlayerManager extends React.Component {
@@ -21,10 +22,19 @@ class PlayerManager extends React.Component {
         this.setState({ players: this.state.players.filter((p) => p.name != name) })
     }
 
+    onFilter(filter) {
+        console.log(filter);
+        this.setState({ filters: filter });
+    }
+
     render() {
         return (<>
             <PlayerForm onSave={(p) => this.onSave(p)} />
-            <PlayerList players={this.state.players} onDelete={(name) => this.onDelete(name)} />
+            <FilterPlayer onFilter={(filter) => this.onFilter(filter)} />
+            <PlayerList players={this.state.players}
+                onDelete={(name) => this.onDelete(name)}
+                filters={this.state.filters}
+            />
         </>)
     }
 }
