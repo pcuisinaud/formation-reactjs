@@ -1,6 +1,9 @@
 import React from 'react';
+import LangContext from './LangContext';
 
 class PlayerList extends React.Component {
+
+    static contextType = LangContext
 
     onDelete(name) {
         this.props.onDelete(name);

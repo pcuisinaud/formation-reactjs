@@ -45,6 +45,7 @@ class PlayerForm extends React.Component {
                     {this.state.teams.map((team) => (<option key={team}>{team}</option>))}
                 </select>
                 <button onClick={() => this.onSave()}>Enregistrer</button>
+                [{this.context}]
             </div>
         )
     }
