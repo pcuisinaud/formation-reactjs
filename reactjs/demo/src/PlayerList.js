@@ -9,8 +9,8 @@ class PlayerList extends React.Component {
     render() {
         this.onDelete = this.onDelete.bind(this);
         const players = this.props.players
-            .filter(p => !this.props.filters || this.props.filters.filterName == '' || this.props.filters.filterName == p.name)
-            .filter(p => !this.props.filters || this.props.filters.filterTeam == '' || this.props.filters.filterTeam == p.team)
+            .filter(p => !this.props.filters || this.props.filters.filterName === '' || this.props.filters.filterName === p.name)
+            .filter(p => !this.props.filters || this.props.filters.filterTeam === '' || this.props.filters.filterTeam === p.team)
             .map((player) => (<p key={player.name}>
                 <span>Joueur : {player.name}</span>
                 <span>Equipe : {player.team}</span>

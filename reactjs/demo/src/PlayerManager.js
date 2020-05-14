@@ -19,7 +19,7 @@ class PlayerManager extends React.Component {
 
     onDelete(name) {
         console.log("onDelete " + name);
-        this.setState({ players: this.state.players.filter((p) => p.name != name) })
+        this.setState({ players: this.state.players.filter((p) => p.name !== name) })
     }
 
     onFilter(filter) {
