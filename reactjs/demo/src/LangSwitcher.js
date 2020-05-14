@@ -5,12 +5,12 @@ class LangSwitcher extends React.Component {
 
     static contextType = LangContext
 
-    onClick() {
+    switchLang() {
         this.context.setLang((this.context.lang === 'fr') ? 'en' : 'fr');
     }
 
     render() {
-        return (<button onClick={()=>this.onClick()}>{this.context.lang}</button>)
+        return (<button onClick={() => this.switchLang()}>{this.context.lang}</button>)
     }
 }
 
