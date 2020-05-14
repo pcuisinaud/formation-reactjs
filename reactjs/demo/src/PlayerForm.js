@@ -9,6 +9,7 @@ class PlayerForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { name: '', team: '', teams: null }
+        this.numInput = React.createRef();
     }
 
     // postconstruct
@@ -40,7 +41,8 @@ class PlayerForm extends React.Component {
 
         return (
             <div>
-                <h2>Player Form</h2>
+                <h2>Player Form</h2>                
+                <input type='text' ref={this.numInput} placeholder='Age'/>
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
                 <select name="team" value={this.state.team} onChange={this.onHandleChange}>
                     <option value="">- Choisir une équipe -</option>
