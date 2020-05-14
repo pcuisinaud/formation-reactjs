@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
-import MotDePasse from './MotDePasse';
+import React from 'react';
+import PlayerManager from './PlayerManager';
 
 function MyApp() {
-    return (
-        <div>
-            <MotDePasse />
-        </div>
-    );
+    return (<PlayerManager/>);
 }
 
 export default MyApp;
