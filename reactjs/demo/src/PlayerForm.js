@@ -1,7 +1,10 @@
 import React from 'react';
 import PlayerService from './services/Player.service';
+import LangContext from './LangContext';
 
 class PlayerForm extends React.Component {
+
+    static contextType = LangContext
 
     constructor(props) {
         super(props);
@@ -12,6 +15,7 @@ class PlayerForm extends React.Component {
     componentDidMount() {
         console.log("Did mount")
         PlayerService.getTeams().then(teams => this.setState({teams}));
+        console.log(this.context);
     }
   
     // predestroy
