@@ -42,7 +42,7 @@ class PlayerForm extends React.Component {
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
                 <select name="team" value={this.state.team} onChange={this.onHandleChange}>
                     <option value="">- Choisir une équipe -</option>
-                    {this.state.teams.map((team) => (<option>{team}</option>))}
+                    {this.state.teams.map((team) => (<option key={team}>{team}</option>))}
                 </select>
                 <button onClick={() => this.onSave()}>Enregistrer</button>
             </div>
