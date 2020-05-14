@@ -25,7 +25,7 @@ class MotDePasse extends React.Component {
         return (
             <>
                 <div>
-                    <label for="password">Mot de passe</label>
+                    <label htmlFor="password">Mot de passe</label>
                     <input id="password" type="password" onKeyUp={(e)=>this.onKeyUp(e)}/>
                 </div>
                 <div>
