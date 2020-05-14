@@ -12,13 +12,19 @@ class PlayerManager extends React.Component {
     }
 
     onSave(p) {
+        console.log("onSave " + p);
         this.setState({ players: [...this.state.players, p] })
+    }
+
+    onDelete(name) {
+        console.log("onDelete " + name);
+        this.setState({ players: this.state.players.filter((p) => p.name != name) })
     }
 
     render() {
         return (<>
             <PlayerForm onSave={(p) => this.onSave(p)} />
-            <PlayerList players={this.state.players}/>
+            <PlayerList players={this.state.players} onDelete={(name) => this.onDelete(name)} />
         </>)
     }
 }
