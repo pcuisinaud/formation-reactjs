@@ -37,6 +37,7 @@ class PlayerForm extends React.Component {
         if (!this.state.teams) return (<div>Loading...</div>)
 
         this.onHandleChange = this.onHandleChange.bind(this);
+
         return (
             <div>
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
@@ -44,7 +45,8 @@ class PlayerForm extends React.Component {
                     <option value="">- Choisir une équipe -</option>
                     {this.state.teams.map((team) => (<option key={team}>{team}</option>))}
                 </select>
-                <button onClick={() => this.onSave()}>Enregistrer</button>               
+                <button onClick={() => this.onSave()}>Enregistrer</button>
+                {this.context.lang}
             </div>
         )
     }
