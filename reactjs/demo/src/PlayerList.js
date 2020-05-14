@@ -19,7 +19,10 @@ class PlayerList extends React.Component {
                 <span>Equipe : {player.team}</span>
                 <button onClick={() => this.onDelete(player.name)}>DEL</button>
             </p>))
-        return (<>{players}</>)
+        return (<div>
+            <h2>Player List</h2>
+            {players}
+        </div>)
     }
 }
 

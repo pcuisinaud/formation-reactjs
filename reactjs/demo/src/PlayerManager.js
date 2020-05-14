@@ -28,14 +28,15 @@ class PlayerManager extends React.Component {
     }
 
     render() {
-        return (<>
+        return (<div>
+            <h2>Player Manager</h2>
             <PlayerForm onSave={(p) => this.onSave(p)} />
             <FilterPlayer onFilter={(filter) => this.onFilter(filter)} />
             <PlayerList players={this.state.players}
                 onDelete={(name) => this.onDelete(name)}
                 filters={this.state.filters}
             />
-        </>)
+        </div>)
     }
 }
 

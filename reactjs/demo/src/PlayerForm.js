@@ -40,6 +40,7 @@ class PlayerForm extends React.Component {
 
         return (
             <div>
+                <h2>Player Form</h2>
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
                 <select name="team" value={this.state.team} onChange={this.onHandleChange}>
                     <option value="">- Choisir une équipe -</option>
