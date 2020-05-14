@@ -10,10 +10,10 @@ class MotDePasse extends React.Component {
             testNumber: false
         };
     }
-    onKeyUp() {
-        let password = document.getElementById('password').value;
+    onKeyUp(event) {
+        const password = event.target.value;
         console.log(password);
-        let newState = {
+        const newState = {
             testLength: password.length > 8,
             testUpper: password.match(/[A-Z]/g),
             testLower: password.match(/[a-z]/g),
@@ -26,7 +26,7 @@ class MotDePasse extends React.Component {
             <>
                 <div>
                     <label for="password">Mot de passe</label>
-                    <input id="password" type="password" onKeyUp={()=>this.onKeyUp()}/>
+                    <input id="password" type="password" onKeyUp={(e)=>this.onKeyUp(e)}/>
                 </div>
                 <div>
                     <p style={{color: this.state.testLength?'green':'red'}}>8 caractères minimum</p>
