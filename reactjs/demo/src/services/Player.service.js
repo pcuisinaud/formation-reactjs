@@ -8,7 +8,7 @@ function addTeam(name) {
     const body = { team: { name } };
     const headers = { 'Content-Type': 'application/json' };
     console.log(body);
-    const opt = { methode: 'POST', headers, body: JSON.stringify(body) };
+    const opt = { method: 'post', headers, body: JSON.stringify(body) };
     return fetch(api_url, opt);
 }
 
