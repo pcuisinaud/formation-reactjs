@@ -1,7 +1,36 @@
 const http = require('http');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-const teams = ["Juve", "Strasbourg", "Madrid"]
+let teams = ["Juve", "Strasbourg", "Madrid"]
 
+// middelwar
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
+app.use(bodyParser.json());
+
+// table de routage
+app.get('/', (req, res) => {
+    res.send('Racine')
+})
+app.get('/teams', (req, res) => {
+    res.json(teams);
+})
+app.post('/teams', (req, res) => {
+    res.send("OK")
+    console.log(req.body);
+    const {name} = req.body.team;
+    teams.push(name);
+})
+
+app.listen(8080, () => {
+    console.log('Server running on 8080')
+})
+
+/*
 http.createServer((req, res) => {
     console.log(req.url);
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,3 +40,4 @@ http.createServer((req, res) => {
     res.end();
 }).listen(8080);
 console.log('Server running on 8080');
+*/
