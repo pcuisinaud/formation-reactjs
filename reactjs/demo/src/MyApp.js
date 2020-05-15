@@ -6,6 +6,7 @@ import Test from './Test';
 import TeamForm from './TeamForm';
 import SubTest from './SubTest';
 import Login from './Login';
+import CTF from './CTF';
 import { LoginProvider } from './LoginContext';
 import {
     BrowserRouter as Router,
@@ -43,7 +44,7 @@ function MyApp() {
                         <TeamForm />
                     </Route>
                     <Route path="/ctf">
-                        <TeamForm />
+                        <CTF />
                     </Route>
                 </Switch>
             </Router>
