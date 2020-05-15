@@ -8,8 +8,9 @@ class PlayerForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { name: '', team: '', teams: null }
+        this.state = { name: '', team: '', teams: null, position: 0 }
         this.numInput = React.createRef();
+        this.myDiv = React.createRef();
     }
 
     // postconstruct
@@ -26,12 +27,20 @@ class PlayerForm extends React.Component {
     onSave() {
         this.props.onSave(this.state);
         this.setState({ name: '', team: '' });
+        this.numInput.current.value='TODO'
+        this.myDiv.current.style.fontSize = "5rem";
     }
 
     onHandleChange(e) {
         let state = {};
         state[e.target.name] = e.target.value;
         this.setState(state);
+    }
+
+    avance() {        
+        this.myDiv.current.style.position = 'absolute';
+        this.myDiv.current.style.left = (this.state.position + 10) + 'px';
+        this.setState({position : this.state.position + 10});
     }
 
     render() {
@@ -41,8 +50,10 @@ class PlayerForm extends React.Component {
 
         return (
             <div>
-                <h2>Player Form</h2>                
+                <h2>Player Form</h2>         
+                <div ref={this.myDiv}>myDiv</div>       
                 <input type='text' ref={this.numInput} placeholder='Age'/>
+                <button onClick={()=>this.avance()}>Avance</button>
                 <input name="name" placeholder='Nom du joueur' value={this.state.name} onChange={this.onHandleChange} />
                 <select name="team" value={this.state.team} onChange={this.onHandleChange}>
                     <option value="">- Choisir une équipe -</option>
