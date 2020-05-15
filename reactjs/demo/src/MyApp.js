@@ -5,6 +5,8 @@ import LangSwitcher from './LangSwitcher';
 import Test from './Test';
 import TeamForm from './TeamForm';
 import SubTest from './SubTest';
+import Login from './Login';
+import { LoginProvider } from './LoginContext';
 import {
     BrowserRouter as Router,
     Switch,
@@ -14,8 +16,8 @@ import {
 
 function MyApp() {
     return (
-        <LangProvider value='fr'>
-            <LangSwitcher />
+        <LoginProvider>
+            <Login />
             <Router>
                 <nav>
                     <ul>
@@ -23,6 +25,7 @@ function MyApp() {
                         <li><Link to="/test">Test</Link></li>
                         <li><Link to="/player">Player</Link></li>
                         <li><Link to="/teams">Teams</Link></li>
+                        <li><Link to="/ctf">CTF</Link></li>
                     </ul>
                 </nav>
                 <Switch>
@@ -39,9 +42,12 @@ function MyApp() {
                     <Route path="/teams">
                         <TeamForm />
                     </Route>
+                    <Route path="/ctf">
+                        <TeamForm />
+                    </Route>
                 </Switch>
             </Router>
-        </LangProvider>
+        </LoginProvider>
     );
 }
 

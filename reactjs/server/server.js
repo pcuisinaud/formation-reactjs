@@ -5,6 +5,9 @@ const bodyParser = require('body-parser');
 
 let teams = ["Juve", "Strasbourg", "Madrid"]
 
+const expectedUser = "admin"
+const expectedPass = "pass"
+
 // middelwar
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -28,6 +31,15 @@ app.post('/teams', (req, res) => {
     } else {
         teams.push(name);
         res.sendStatus(200);
+    }    
+})
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    const {username, password} = req.body;
+    if(username == expectedUser && password == expectedPass) {
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(403);
     }    
 })
 
