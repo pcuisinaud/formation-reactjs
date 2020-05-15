@@ -3,20 +3,25 @@ import { addTeam } from './services/Player.service';
 
 class TeamForm extends React.Component {
 
-    state = {
-        name: ''
+    teamName = React.createRef();
+    response = React.createRef();
+
+    onAdd() {
+        addTeam(this.teamName.current.value)
+            .then(res => this.updateWithResponse(res));
     }
 
-    onAdd(e) {
-        addTeam(this.state.name);
+    updateWithResponse(res) {
+        this.response.current.innerText = (res.status == '200') ? 'OK' : 'Erreur !';
     }
 
     render() {
         return (
             <div>
                 <h2>Team Form</h2>
-                <input type='text' name="name" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-                <button onClick={(e) => this.onAdd(e)}>Ajouter</button>
+                <input placeholder="Nom de l'équipe" type="text" ref={this.teamName} />
+                <span ref={this.response}></span>
+                <button onClick={() => this.onAdd()}>Ajouter</button>
             </div>
         )
     }

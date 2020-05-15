@@ -21,10 +21,14 @@ app.get('/teams', (req, res) => {
     res.json(teams);
 })
 app.post('/teams', (req, res) => {
-    res.send("OK")
     console.log(req.body);
     const {name} = req.body.team;
-    teams.push(name);
+    if(teams.indexOf(name) > -1) {
+        res.sendStatus(400);
+    } else {
+        teams.push(name);
+        res.sendStatus(200);
+    }    
 })
 
 app.listen(8080, () => {
