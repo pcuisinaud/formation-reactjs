@@ -39,8 +39,9 @@ class PlayerForm extends React.Component {
 
     avance() {        
         this.myDiv.current.style.position = 'absolute';
-        this.myDiv.current.style.left = (this.state.position + 10) + 'px';
-        this.setState({position : this.state.position + 10});
+        const newPos = this.state.position + 10;
+        this.myDiv.current.style.left = newPos + 'px';
+        this.setState({position : newPos});
     }
 
     render() {
