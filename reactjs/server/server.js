@@ -8,6 +8,7 @@ let teams = ["Juve", "Strasbourg", "Madrid"]
 // middelwar
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', '*');
     next();
 })
 app.use(bodyParser.json());
