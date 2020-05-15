@@ -3,6 +3,7 @@ import PlayerManager from './PlayerManager';
 import { LangProvider } from './LangContext';
 import LangSwitcher from './LangSwitcher';
 import Test from './Test';
+import TeamForm from './TeamForm';
 import SubTest from './SubTest';
 import {
     BrowserRouter as Router,
@@ -21,6 +22,7 @@ function MyApp() {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/test">Test</Link></li>
                         <li><Link to="/player">Player</Link></li>
+                        <li><Link to="/teams">Teams</Link></li>
                     </ul>
                 </nav>
                 <Switch>
@@ -33,6 +35,9 @@ function MyApp() {
                     </Route>
                     <Route path="/player">
                         <PlayerManager />
+                    </Route>
+                    <Route path="/teams">
+                        <TeamForm />
                     </Route>
                 </Switch>
             </Router>
