@@ -28,7 +28,7 @@ class Login extends React.Component {
     }
 
     logout() {
-        this.context.setUsername({ username: null });
+        this.context.setUsername(null);
     }
 
     render() {
