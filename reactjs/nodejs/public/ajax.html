@@ -1,0 +1,23 @@
+<html>
+
+<body>
+    <h1>Ajax</h1>
+    <button id="btn-demo">Demo</button>
+    <script>
+        var options = {
+            method: 'POST',
+            body: JSON.stringify({ message: 'coucou' }),
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }
+        document.getElementById('btn-demo')
+            .addEventListener('click', () => {
+                fetch('/ajax', options)
+                    .then(res => console.log(res.status));
+            })
+
+    </script>
+</body>
+
+</html>

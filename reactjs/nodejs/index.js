@@ -1,4 +1,6 @@
+const fs = require('fs')
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express();
 const port = 3200;
 
@@ -21,6 +23,8 @@ const students = [
     // }
 //})
 
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.static(`${__dirname}/public`));
 
 // ** Routing **
@@ -73,6 +77,18 @@ app.delete('/article', (req, res) => {
     res.send('article deleted');
 })
 
+app.get('/login', (req, res) => {
+    res.sendFile(`${__dirname}/public/login.html`);
+})
+app.post(['/login', '/login.html'], (req, res) => {    
+    res.json(req.body);
+})
+
+app.post('/ajax', (req, res) => {
+    console.log(req.body);
+    res.json(req.body);
+})
+
 app.listen(port, () => {
-    console.log(`Server runing on ${port} ...`)
+    console.log(`Server running on ${port} ...`)
 })
